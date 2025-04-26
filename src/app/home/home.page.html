@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="header-fix">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>pruebaApp</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button 
+        *ngIf="user" 
+        size="small" 
+        color="danger" 
+        (click)="logout()">
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="true" class="ion-padding content-with-safe-area">
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>HOME</strong>
+    <p>Página de bienvenida</p>
+
+    <p *ngIf="user">Bienvenido {{ user.email }}</p>
+
+    <ng-container *ngIf="!user">
+      <ion-button size="small" (click)="goToLogin()">Ir a Login</ion-button>
+      <ion-button size="small" (click)="goToRegister()">Ir al Registro</ion-button>
+    </ng-container>
   </div>
 </ion-content>

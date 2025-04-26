@@ -1,0 +1,47 @@
+<ion-header [translucent]="true" class="header-fix">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button 
+        size="small" 
+        color="danger" 
+        (click)="volverAlHome()">Volver al home
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding content-with-safe-area">
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <ion-input
+          label="Email"
+          labelPlacement="floating"
+          type="email"
+          formControlName="email"  
+          required
+        ></ion-input>
+
+        <ion-input
+          label="Password"
+          labelPlacement="floating"
+          type="password"
+          formControlName="password" 
+          required
+        ></ion-input>
+
+        <ion-button expand="block" type="submit">Ingresar</ion-button>
+      </form>
+
+      <ion-button size="small" (click)="autocompletarLogin('gian@gmail.com')">Cuenta1</ion-button>
+      <ion-button size="small" (click)="autocompletarLogin('gian2@gmail.com')">Cuenta2</ion-button>
+      <ion-button size="small" (click)="autocompletarLogin('gian3@gmail.com')">Cuenta3</ion-button>
+
+      <p *ngIf="errorMessage" style="color: red; margin-top: 10px;">
+        {{ errorMessage }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

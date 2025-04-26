@@ -25,3 +25,7 @@
 #container a {
   text-decoration: none;
 }
+
+ion-content {
+  padding-top: env(safe-area-inset-top);
+}
