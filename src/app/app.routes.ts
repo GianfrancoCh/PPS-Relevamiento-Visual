@@ -17,4 +17,16 @@ export const routes: Routes = [
     path: 'splash',
     loadComponent: () => import('./splash/splash.page').then( m => m.SplashPage)
   },
+  {
+    path: 'fotos-feas',
+    loadComponent: () => import('./fotos/fotos-feas/fotos-feas.page').then( m => m.FotosFeasPage)
+  },
+  {
+    path: 'fotos-lindas',
+    loadComponent: () => import('./fotos/fotos-lindas/fotos-lindas.page').then( m => m.FotosLindasPage)
+  },
+  {
+    path: 'fotos',
+    loadChildren: () => import('./fotos/fotos-routing.module').then(m => m.FotosPageRoutingModule)
+  }
 ];

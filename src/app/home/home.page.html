@@ -1,6 +1,6 @@
 <ion-header [translucent]="true" class="header-fix">
   <ion-toolbar>
-    <ion-title>pruebaApp</ion-title>
+    <ion-title class="titulo">Relevamiento Visual</ion-title>
 
     <ion-buttons slot="end">
       <ion-button 
@@ -14,16 +14,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding content-with-safe-area">
-  <div id="container">
-    <strong>HOME</strong>
-    <p>Página de bienvenida</p>
+<div class="container">
+  <div *ngIf="!user" id="container">
+    <strong>BIENVENIDO</strong>
+    <p>Debes estar registrado para poder utilizar la app.</p>
 
-    <p *ngIf="user">Bienvenido {{ user.email }}</p>
-
-    <ng-container *ngIf="!user">
-      <ion-button size="small" (click)="goToLogin()">Ir a Login</ion-button>
-      <ion-button size="small" (click)="goToRegister()">Ir al Registro</ion-button>
-    </ng-container>
+    <ion-button size="small" (click)="goToLogin()">Iniciar Sesión</ion-button>
+    <ion-button size="small" (click)="goToRegister()">Crear una Cuenta</ion-button>
   </div>
-</ion-content>
+
+  <ng-container *ngIf="user">
+    <div class="options">
+      <ion-button fill="outline" class="nice-button" (click)="navCtrl.navigateBack('/fotos/lindas')">
+        <div class="button-content">
+          <span>COSAS LINDAS</span>
+          <img src="../../assets/happy-emoji.png" alt="happy-emoji">
+        </div>
+      </ion-button>
+
+      <ion-button fill="outline" class="ugly-button" (click)="navCtrl.navigateBack('/fotos/feas')">
+        <div class="button-content">
+          <span>COSAS FEAS </span>
+          <img src="../../assets/sick-emoji.png" alt="sick-emoji">
+        </div>
+      </ion-button>
+    </div>
+  </ng-container>
+</div>

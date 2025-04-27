@@ -1,11 +1,49 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo{
+  font-family: "system-ui", sans-serif;
+}
+
+.options {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  ion-button {
+    flex: 1;
+    margin: 0;
+    border-radius: 0;
+    --border-radius: 0;
+    font-size: 24px;
+    background: rgba(240, 248, 255, 0.6); /* Fondo opcional */
+    
+    .button-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        margin-top: 10px;
+        font-size: 28px;
+        font-family: 'system-ui', sans-serif;
+      }
+    }
+  }
+}
+
 #container {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #container strong {
@@ -16,16 +54,20 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 #container a {
   text-decoration: none;
 }
 
-ion-content {
-  padding-top: env(safe-area-inset-top);
+.nice-button {
+  --background: #4CAF50; /* verde lindo */
+  --color: white;
+}
+
+.ugly-button {
+  --background: #f44336; /* rojo feo */
+  --color: white;
 }

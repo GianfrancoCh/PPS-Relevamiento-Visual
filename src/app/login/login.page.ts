@@ -4,6 +4,7 @@ import { FormsModule, FormGroup,ReactiveFormsModule, FormBuilder } from '@angula
 import { IonButton, IonInput, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonHeader, IonToolbar, IonButtons, IonTitle } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
 import { Router,RouterModule } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginPage {
   password = '';
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder, private navCtrl: NavController) {
     this.loginForm = this.fb.group({
       email: [''],
       password: ['']
@@ -56,7 +57,7 @@ export class LoginPage {
 
       // Opcional: navegar a otra ruta
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['/home']);
+        this.navCtrl.navigateBack('/home');
       });
       console.log('Login exitoso:', data.user);
     } catch (err) {
@@ -72,6 +73,6 @@ export class LoginPage {
   };
 
   volverAlHome() {
-    this.router.navigate(['/home']);
+    this.navCtrl.navigateBack('/home');
   };
 }

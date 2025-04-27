@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonText } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonText, IonIcon, IonFab, IonFabButton, IonCard, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
 import { User } from '@supabase/supabase-js';
 import { CommonModule } from '@angular/common';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonText, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, RouterModule, IonButton, CommonModule, IonButtons],
+  imports: [IonCardContent, IonCardTitle, IonCard, IonFabButton, IonFab, IonIcon, IonText, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, RouterModule, IonButton, CommonModule, IonButtons],
 })
 export class HomePage implements OnInit{
 
   user: User | null = null;
   isLoggedIn = false;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, protected navCtrl: NavController) {}
 
   ngOnInit() {
     this.authService.getCurrentUser().subscribe(user => {
@@ -28,15 +29,23 @@ export class HomePage implements OnInit{
   };
   
   goToLogin() {
-    this.router.navigate(['/login']);
-  };
+    this.navCtrl.navigateForward('/login');
+  }
   
   goToRegister() {
-    this.router.navigate(['/register']);
+    this.navCtrl.navigateForward('/register');
   };
 
   logout() {
-    this.authService.signOut(); // Esto también redirige al login
+    this.authService.signOut();
+    this.navCtrl.navigateRoot('/login'); 
+  }
+
+  accionUno() {
+    console.log('Acción 1 ejecutada');
+  };
+  accionDos() {
+    console.log('Acción dos ejecutada');
   };
 
 }

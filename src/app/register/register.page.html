@@ -6,7 +6,7 @@
       <ion-button 
         size="small" 
         color="danger" 
-        (click)="volverAlHome()">Volver al home
+        (click)="volverAlHome()">Volver al página principal
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -22,7 +22,7 @@
       <form (ngSubmit)="register()" #form="ngForm">
 
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label position="floating">Correo Electrónico</ion-label>
           <ion-input
             type="email"
             required
@@ -32,7 +32,7 @@
           </ion-input>
         </ion-item>
         <ion-note color="danger" *ngIf="form.submitted && !email">
-          El email es obligatorio.
+          El correo es obligatorio.
         </ion-note>
 
         <ion-item>
