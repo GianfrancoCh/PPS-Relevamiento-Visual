@@ -1,5 +1,16 @@
 <ion-content>
+
   <ion-button expand="full" (click)="tomarFoto()">
     Tomar Foto
   </ion-button>
+
+  <ion-list *ngIf="fotos.length > 0">
+    <ion-item *ngFor="let foto of fotos">
+      <ion-thumbnail slot="start">
+        <img [src]="foto.webPath" alt="Foto tomada" />
+      </ion-thumbnail>
+      <ion-label>Foto tomada</ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

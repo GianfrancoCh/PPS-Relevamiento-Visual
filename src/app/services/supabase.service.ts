@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment'; // Asegúrate de q
 @Injectable({
   providedIn: 'root'
 })
-export class DatabaseService {
+export class SupabaseService {
 
   private supabase: SupabaseClient = createClient(environment.supabaseUrl, environment.supabaseKey);
 
@@ -70,40 +70,6 @@ export class DatabaseService {
       throw new Error('Hubo un problema al actualizar los datos: ' + error.message);
     }
   }
-
-  // Escuchar cambios en la tabla
-  // listenColChanges<T extends { id: string }>(
-  //   tableName: string,
-  //   arrayPointer: Array<T>,
-  //   filterFunc?: (item: T) => boolean,
-  //   sortFunc?: (a: T, b: T) => number,
-  //   transform?: (item: T) => Promise<T>
-  // ) {
-  //   const channel = this.supabase
-  //     .from(tableName)
-  //     .on('*', async (payload: SupabaseRealtimePayload<T>) => {
-  //       const newData = transform ? await transform(payload.new) : payload.new;
-  //       if (!filterFunc || filterFunc(newData)) {
-  //         if (payload.eventType === 'INSERT') {
-  //           arrayPointer.push(newData);
-  //         } else {
-  //           const index = arrayPointer.findIndex(t => t.id === newData.id);
-  //           if (payload.eventType === 'UPDATE') {
-  //             arrayPointer[index] = newData;
-  //           } else if (payload.eventType === 'DELETE') {
-  //             arrayPointer.splice(index, 1);
-  //           }
-  //         }
-  //       }
-  
-  //       if (sortFunc) {
-  //         arrayPointer.sort(sortFunc);
-  //       }
-  //     })
-  //     .subscribe();
-  
-  //   return channel;
-  // }
 
   // Buscar usuario por email
   async searchUserByEmail(email: string): Promise<User> {

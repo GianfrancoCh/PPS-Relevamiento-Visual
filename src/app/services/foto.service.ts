@@ -8,12 +8,14 @@ export class FotoService {
 
   constructor() { }
 
-  public async addNewToGallery() {
+  public async addNewToGallery():Promise<String | undefined> {
     // Take a photo
-    const capturedPhoto = await Camera.getPhoto({
+    const image:Photo = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
-      quality: 100
     });
+    return image.webPath
   }
 }
