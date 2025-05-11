@@ -1,47 +1,109 @@
 <ion-header [translucent]="true" class="header-fix">
   <ion-toolbar>
-    <ion-title>Ingresar</ion-title>
-    
+    <ion-title>Login</ion-title>
     <ion-buttons slot="end">
-      <ion-button 
-        size="small" 
-        color="danger" 
-        (click)="volverAlHome()">Volver al home
+      <ion-button size="small" color="danger" (click)="volverAlHome()">
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        Página Principal
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding content-with-safe-area">
-  <ion-card>
-    <ion-card-content>
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <ion-input
-          label="Correo Electrónico"
-          labelPlacement="floating"
-          type="email"
-          formControlName="email"  
-          required
-        ></ion-input>
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Bienvenido</ion-card-title>
+      </ion-card-header>
 
-        <ion-input
-          label="Contraseña"
-          labelPlacement="floating"
-          type="password"
-          formControlName="password" 
-          required
-        ></ion-input>
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <ion-item>
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            <ion-input
+              label="Correo Electrónico"
+              labelPlacement="floating"
+              type="email"
+              formControlName="email"
+              required
+            ></ion-input>
+          </ion-item>
 
-        <ion-button expand="block" type="submit">Ingresar</ion-button>
-      </form>
+          <ion-item>
+            <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+            <ion-input
+              label="Contraseña"
+              labelPlacement="floating"
+              type="password"
+              formControlName="password"
+              required
+            ></ion-input>
+          </ion-item>
 
-      <ion-button size="small" (click)="autocompletarLogin('gian@gmail.com')">Cuenta1</ion-button>
-      <ion-button size="small" (click)="autocompletarLogin('gian2@gmail.com')">Cuenta2</ion-button>
-      <ion-button size="small" (click)="autocompletarLogin('gian3@gmail.com')">Cuenta3</ion-button>
+          <ion-button expand="block" type="submit" class="login-button">
+            Ingresar
+          </ion-button>
+        </form>
 
-      <p *ngIf="errorMessage" style="color: red; margin-top: 10px;">
-        {{ errorMessage }}
-      </p>
-    </ion-card-content>
-  </ion-card>
+        <ion-text color="medium" class="ion-text-center">
+          <p>O autocompletá con:</p>
+        </ion-text>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4">
+              <ion-button
+                size="small"
+                expand="block"
+                (click)="autocompletarLogin(1)"
+              >
+                Admin
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button
+                size="small"
+                expand="block"
+                (click)="autocompletarLogin(2)"
+              >
+                Invitado
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button
+                size="small"
+                expand="block"
+                (click)="autocompletarLogin(3)"
+              >
+                Usuario
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button
+                size="small"
+                expand="block"
+                (click)="autocompletarLogin(4)"
+              >
+                Anonimo
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button
+                size="small"
+                expand="block"
+                (click)="autocompletarLogin(5)"
+              >
+                Tester
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <p *ngIf="errorMessage" class="error-text">
+          {{ errorMessage }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

@@ -2,8 +2,7 @@ export interface User {
     id: string
     userId: number,
     email: string,
-    name: string,
-    lastname: string,
+    perfil: string,
     type: UserType,
     gender: UserGender,
   }
