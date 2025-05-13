@@ -5,6 +5,9 @@ import { FotosLindasPage } from './fotos-lindas/fotos-lindas.page';
 import { FotosPageRoutingModule } from './fotos-routing.module';
 import { FotosManagerComponent } from './fotos-manager/fotos-manager.component';
 import { FotosListaComponent } from './fotos-lista/fotos-lista.component';
+import { FotoDetalleComponent } from './foto-detalle/foto-detalle.component';
+import { GraficosComponent } from './graficos/graficos.component';
+
 
 @NgModule({
   declarations: [],
@@ -14,7 +17,9 @@ import { FotosListaComponent } from './fotos-lista/fotos-lista.component';
     FotosManagerComponent,
     FotosFeasPage,
     FotosLindasPage,
-    FotosListaComponent
+    FotosListaComponent,
+    FotoDetalleComponent,
+    GraficosComponent
   ],
   exports: [FotosManagerComponent], // Asegúrate de exportar el componente FotosManager
 })

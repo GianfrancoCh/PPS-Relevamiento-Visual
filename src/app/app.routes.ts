@@ -28,5 +28,9 @@ export const routes: Routes = [
   {
     path: 'fotos',
     loadChildren: () => import('./fotos/fotos-routing.module').then(m => m.FotosPageRoutingModule)
+  },
+  {
+    path: 'foto-detalle',
+    loadComponent: () => import('./fotos/foto-detalle/foto-detalle.component').then( m => m.FotoDetalleComponent)
   }
 ];

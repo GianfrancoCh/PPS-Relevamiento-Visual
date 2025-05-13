@@ -1,0 +1,29 @@
+<ion-content class="ion-padding">
+
+  <!-- Botón de volver -->
+  <ion-button fill="clear" color="primary" (click)="volverAtras()">
+    ← Volver
+  </ion-button>
+
+  <ion-card *ngIf="foto" class="foto-card">
+    <img [src]="foto.url" class="foto-img" />
+    <ion-card-header>
+      <ion-card-title class="foto-nombre">{{ foto.nombre }}</ion-card-title>
+      <ion-card-subtitle>Tipo: {{ foto.tipo }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Votos:</strong> {{ foto.votos }}</p>
+
+      <ion-button
+        (click)="votar()"
+        size="default"
+        color="success"
+        expand="block"
+        [disabled]="votado">
+        {{ votado ? 'Ya votaste' : 'Votar' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

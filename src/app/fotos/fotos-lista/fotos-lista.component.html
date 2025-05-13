@@ -1,3 +1,12 @@
-<p>
- TES TEST TEST
-</p>
+<ion-list *ngIf="fotos.length > 0">
+  <ion-item *ngFor="let foto of fotos">
+    <ion-thumbnail slot="start">
+      <img [src]="foto.url" alt="Foto subida" />
+    </ion-thumbnail>
+    <ion-label class="labels">
+      Subida por {{ obtenerNombreUsuario(foto.nombre) }} <br />
+      Fecha: {{ obtenerFechaDesdeNombre(foto.nombre) }}
+    </ion-label>
+    <ion-button (click)="verDetalle(foto)">Ver y votar</ion-button>
+  </ion-item>
+</ion-list>
