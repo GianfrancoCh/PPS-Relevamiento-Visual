@@ -45,9 +45,9 @@ export class LoginPage {
       const { data, error } = await this.authService.signIn(email, password);
       if (error) {
         if (error.message === 'Invalid login credentials') {
-          this.errorMessage = 'Email o contraseña incorrectos.';
+          this.errorMessage = 'Correo o contraseña incorrectos.';
         } else if (error.message === 'missing email or phone') {
-          this.errorMessage = 'Falta email o contraseña.';
+          this.errorMessage = 'Falta correo o contraseña.';
         }else{
           this.errorMessage = error.message;
         }

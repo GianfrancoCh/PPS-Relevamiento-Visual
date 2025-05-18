@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SupabaseService } from '../../services/supabase.service';
-import { IonList, IonItem, IonLabel, IonThumbnail, IonButton } from '@ionic/angular/standalone';
+import { IonList, IonItem, IonLabel, IonThumbnail, IonButton, IonCardContent, IonCard } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { FotoDetalleService } from 'src/app/services/foto-detalle.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   selector: 'app-fotos-lista',
   templateUrl: './fotos-lista.component.html',
   styleUrls: ['./fotos-lista.component.scss'],
-  imports: [IonButton, IonItem, IonList, IonLabel, IonThumbnail, CommonModule],
+  imports: [IonCard, IonCardContent, IonButton, IonItem, IonList, IonLabel, IonThumbnail, CommonModule],
 })
 export class FotosListaComponent  implements OnInit {
   @Input() tipo: 'fea' | 'linda' = 'fea';

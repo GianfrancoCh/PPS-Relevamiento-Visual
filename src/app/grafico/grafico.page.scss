@@ -1,0 +1,37 @@
+ion-toolbar {
+  --background: linear-gradient(to left, #e5ff1c, #ff0d00); 
+  margin-top: 14px;
+}
+
+ion-title {
+  font-family: 'system-ui', sans-serif;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.boton-volver{
+  color: rgb(7, 0, 0);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold; 
+  background: #ff0d00;
+}
+
+.contenido-grafico {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0px;
+  --padding-bottom: 0;
+  height: 100%;
+}
+
+.graficos-expandido {
+  display: block;
+  height: calc(100% - 64px); // esto da buen alto al componente
+  margin-top: 16px;
+  padding: 0 12px;
+}

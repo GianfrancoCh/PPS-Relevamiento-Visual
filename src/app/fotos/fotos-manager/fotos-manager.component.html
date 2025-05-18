@@ -1,13 +1,15 @@
 <ion-content>
-  <ion-button expand="full" (click)="tomarFoto()">
+  <ion-button expand="full" class="btn-foto" (click)="tomarFoto()">
+    <img src="assets/camera.png" class="icono-btn" alt="Camara" />
     Tomar Foto
+  </ion-button>
+
+  <ion-button expand="full" class="btn-grafico" (click)="verGrafico()">
+    Ver Gráfico de Estadísticas
   </ion-button>
 
   <ion-card>
     <app-fotos-lista [tipo]="tipo"></app-fotos-lista>
   </ion-card>
 
-  <ion-button (click)="verGrafico()">
-    Ver Gráfico
-  </ion-button>
 </ion-content>

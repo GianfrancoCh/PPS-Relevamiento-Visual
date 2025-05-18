@@ -1,12 +1,15 @@
 <ion-list *ngIf="fotos.length > 0">
-  <ion-item *ngFor="let foto of fotos">
-    <ion-thumbnail slot="start">
-      <img [src]="foto.url" alt="Foto subida" />
-    </ion-thumbnail>
-    <ion-label class="labels">
-      Subida por {{ obtenerNombreUsuario(foto.nombre) }} <br />
-      Fecha: {{ obtenerFechaDesdeNombre(foto.nombre) }}
-    </ion-label>
-    <ion-button (click)="verDetalle(foto)">Ver y votar</ion-button>
-  </ion-item>
+  <ion-card *ngFor="let foto of fotos" class="foto-card">
+    <img [src]="foto.url" alt="Foto subida" class="foto-img"/>
+
+    <ion-card-content>
+      <p class="foto-labels">
+        <span class="foto-label-titulo">Subida por:</span> {{ obtenerNombreUsuario(foto.nombre) }}<br />
+        <span class="foto-label-titulo">Fecha:</span> {{ obtenerFechaDesdeNombre(foto.nombre) }}
+      </p>
+      <ion-button expand="block" (click)="verDetalle(foto)">
+        Ver y votar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-list>
