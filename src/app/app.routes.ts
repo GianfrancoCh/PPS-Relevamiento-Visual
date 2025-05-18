@@ -32,5 +32,9 @@ export const routes: Routes = [
   {
     path: 'foto-detalle',
     loadComponent: () => import('./fotos/foto-detalle/foto-detalle.component').then( m => m.FotoDetalleComponent)
+  },
+  {
+    path: 'grafico',
+    loadComponent: () => import('./grafico/grafico.page').then( m => m.GraficoPage)
   }
 ];

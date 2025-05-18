@@ -1,11 +1,45 @@
+ion-toolbar {
+  --background: linear-gradient(to left, #e5ff1c, #ff0d00); 
+  margin-top: 14px;
+}
 .container {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+.boton-logout{
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: #363cf4;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
 .titulo{
   font-family: "system-ui", sans-serif;
+  color: black;
+}
+
+.titulo-inicio {
+  font-size: 32px;
+  color: #e9f01e;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-family: 'system-ui', sans-serif;
+  font-weight: bold;
+}
+
+.descripcion-inicio {
+  font-size: 20px;
+  color: #44ff00;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-family: 'system-ui', sans-serif;
+  font-weight: bold;
 }
 
 .options {

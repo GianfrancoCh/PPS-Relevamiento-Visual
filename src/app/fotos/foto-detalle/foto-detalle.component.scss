@@ -1,17 +1,92 @@
+ion-content {
+  --background: linear-gradient(to right, #1c2fff, #006eff);
+  padding-top: env(safe-area-inset-top);
+  font-family: 'Roboto', sans-serif !important;
+  color: #fff;
+}
+
+.no-scroll {
+  --overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centrado vertical */
+  height: 100vh; /* Ocupa toda la pantalla */
+  padding: 0;
+  margin: 0;
+}
+
 .foto-card {
-    max-width: 500px;
-    margin: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  height: 90vh; /* Ocupa casi toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  border-radius: 12px;
+  border-color: black;
+  overflow: hidden;
 }
-  
+
 .foto-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
+  width: 100%;
+  height: 65vh; /* O ajustá a lo que quieras (más alto si querés más imagen) */
+  object-fit: cover;
+  border-radius: 0; /* Removemos border-radius para integrarse mejor en la card */
+  margin-bottom: 0;
 }
-  
+
 .foto-nombre {
-    font-size: 1.4rem;
-    font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(182, 3, 152);
+  margin: 0;
+  padding: 0;
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px; /* Reducir si hace falta */
+}
+
+.boton-volver{
+    color: rgb(255, 255, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold; 
+}
+
+.foto-labels {
+  display: flex;
+  gap: 20px; /* Espacio entre Tipo y Votos */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.foto-label {
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.foto-label-titulo {
+  font-weight: bold;
+  color: #ffd700; /* Dorado */
+  margin-right: 4px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+ion-card-header {
+  margin: 0;
+  padding: 4px 0 0 0; /* Arriba 4px, el resto 0 */
 }

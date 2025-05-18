@@ -1,11 +1,11 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="header-fix">
   <ion-toolbar>
-    <ion-title>Cosas Lindas del Edificio</ion-title>
+    <ion-title class="titulo">Cosas Lindas del Edificio</ion-title>
     <ion-buttons slot="end">
       <ion-button 
         (click)="volverAlHome()"
         size="small" 
-        color="danger">
+        class="boton-logout">
         Volver
       </ion-button>
     </ion-buttons>
@@ -15,3 +15,4 @@
 <ion-content>
   <app-fotos-manager tipo="linda"></app-fotos-manager>
 </ion-content>
+

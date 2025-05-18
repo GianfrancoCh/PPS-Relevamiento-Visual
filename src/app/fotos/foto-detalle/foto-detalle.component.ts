@@ -26,6 +26,7 @@ export class FotoDetalleComponent implements OnInit {
     if (this.foto?.nombre) {
       await this.verificarSiYaVoto();
       console.log('Votado:', this.votado);
+      console.log(this.foto.nombre);
     }
   }
 
@@ -108,6 +109,33 @@ export class FotoDetalleComponent implements OnInit {
   
     } catch (error) {
       console.error('Error al votar:', error);
+    }
+  };
+
+  getTextoFormateado(nombre: string): string {
+    if (!nombre) return '';
+
+    const partes = nombre.split('_');
+    if (partes.length < 2) return nombre;
+
+    const email = partes[0];
+    const timestamp = partes[1].replace('.jpg', '');
+
+    try {
+      const fecha = new Date(timestamp);
+      const opciones: Intl.DateTimeFormatOptions = {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      };
+
+      const fechaFormateada = fecha.toLocaleString('es-AR', opciones);
+
+      return `Foto Tomada por ${email} ${fechaFormateada}`;
+    } catch (e) {
+      return `Foto Tomada por "${email}"`;
     }
   }
 

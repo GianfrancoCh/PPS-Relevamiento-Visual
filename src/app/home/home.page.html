@@ -5,8 +5,7 @@
     <ion-buttons slot="end">
       <ion-button 
         *ngIf="user" 
-        size="small" 
-        color="danger" 
+        class="boton-logout"
         (click)="logout()">
         Cerrar sesión
       </ion-button>
@@ -16,8 +15,8 @@
 
 <div class="container">
   <div *ngIf="!user" id="container">
-    <strong>BIENVENIDO</strong>
-    <p>Debes estar registrado para poder utilizar la app.</p>
+    <h1 class="titulo-inicio">BIENVENIDO</h1>
+    <p class="descripcion-inicio">Debes estar registrado para poder utilizar la app.</p>
 
     <ion-button size="small" (click)="goToLogin()">Iniciar Sesión</ion-button>
     <ion-button size="small" (click)="goToRegister()">Crear una Cuenta</ion-button>

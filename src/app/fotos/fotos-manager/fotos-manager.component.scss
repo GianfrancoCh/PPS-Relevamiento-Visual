@@ -1,0 +1,10 @@
+ion-button {
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  font-family: 'system-ui', sans-serif;
+  --background: linear-gradient(to right, #ff1cd2, #5900ff);
+
+  border: 2px solid rgb(2, 0, 0); /* Refuerzo CSS nativo */
+  border-radius: 10px;
+}

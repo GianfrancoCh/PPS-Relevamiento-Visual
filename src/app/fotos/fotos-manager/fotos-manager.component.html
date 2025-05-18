@@ -2,10 +2,12 @@
   <ion-button expand="full" (click)="tomarFoto()">
     Tomar Foto
   </ion-button>
-  
+
   <ion-card>
     <app-fotos-lista [tipo]="tipo"></app-fotos-lista>
   </ion-card>
-  <app-graficos [tipo]="tipo"></app-graficos>
 
+  <ion-button (click)="verGrafico()">
+    Ver Gráfico
+  </ion-button>
 </ion-content>

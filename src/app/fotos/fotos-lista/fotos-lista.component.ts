@@ -35,8 +35,17 @@ export class FotosListaComponent  implements OnInit {
       .map(f => ({
         url: this.supabase.getPublicUrl('fotos-edificio', `${carpeta}/${f.name}`),
         nombre: f.name
-      }));
-      console.log('Fotos cargadas:', this.fotos);
+      }))
+      .sort((a, b) => {
+        const fechaA = this.extraerFecha(a.nombre);
+        const fechaB = this.extraerFecha(b.nombre);
+
+        if (!fechaA && !fechaB) return 0;
+        if (!fechaA) return 1;
+        if (!fechaB) return -1;
+
+        return fechaB.getTime() - fechaA.getTime();
+      });
     }
   };
   
@@ -62,6 +71,16 @@ export class FotosListaComponent  implements OnInit {
     // Podés personalizar el formato como quieras
     return fecha.toLocaleString(); // Ej: "12/5/2025, 14:42:52"
   };
+
+  private extraerFecha(nombreArchivo: string): Date | null {
+    const partes = nombreArchivo.split('_');
+    if (partes.length < 2) return null;
+
+    const fechaStr = partes[1].replace('.jpg', '').trim();
+    const fecha = new Date(fechaStr);
+
+    return isNaN(fecha.getTime()) ? null : fecha;
+  }
 
   async verDetalle(foto: { nombre: string; url: string }) {
     

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FotosListaComponent } from '../fotos-lista/fotos-lista.component';
 import { ViewChild } from '@angular/core';
 import { GraficosComponent } from '../graficos/graficos.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class FotosManagerComponent implements OnInit{
     private supabase: SupabaseService,
     private authService: AuthService,
     private fotoService : FotoService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -68,4 +70,8 @@ export class FotosManagerComponent implements OnInit{
       console.error('Error al tomar la foto:', error);
     }
   }; 
+
+  verGrafico() {
+    this.router.navigate(['/grafico'], { queryParams: { tipo: this.tipo } });
+  }
 }

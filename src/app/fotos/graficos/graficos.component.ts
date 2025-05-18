@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, OnChanges,SimpleChanges } from '@angular/core';
 import { Chart, ChartData, ChartOptions, ChartType, PieController, ArcElement,Tooltip,Legend,Title,BarController, BarElement, CategoryScale, LinearScale} from 'chart.js';
 import { FotoService } from 'src/app/services/foto.service';
 import { IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from "@ionic/angular/standalone";
@@ -13,7 +13,7 @@ Chart.register(PieController, ArcElement, Tooltip, Legend, Title,BarElement,BarC
   standalone: true,
   imports: [IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonToolbar, IonHeader]
 })
-export class GraficosComponent implements OnInit {
+export class GraficosComponent implements OnInit, OnChanges{
   @Input() tipo: 'linda' | 'fea' = 'linda';
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
 
@@ -33,6 +33,14 @@ export class GraficosComponent implements OnInit {
     setTimeout(() => {
       this.generarGrafico(); // Esperar a que la vista esté lista
     }, 0);
+
+    console.log('Tipo de gráfico:', this.tipo);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['tipo'] && !changes['tipo'].firstChange) {
+      this.generarGrafico(); // Regenerar el gráfico cuando cambia el tipo
+    }
   }
 
   async generarGrafico() {

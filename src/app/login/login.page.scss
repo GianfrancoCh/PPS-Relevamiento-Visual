@@ -1,3 +1,8 @@
+ion-toolbar {
+  --background: linear-gradient(to left, #e5ff1c, #ff0d00); 
+  margin-top: 14px;
+}
+
 ion-content {
   --background: #0d0d0d; /* fondo negro profundo */
   padding-top: env(safe-area-inset-top);
@@ -23,21 +28,21 @@ ion-content {
 }
 
 ion-card-title {
-  color: #a703d4; /* azul claro vibrante */
+  color: #a0d403; /* azul claro vibrante */
   font-weight: bold;
 }
 
 .login-button {
   margin-top: 20px;
-  --background: #c703a0; /* azul medio */
+  --background: #c71303; /* azul medio */
   --color: #fff;
   --border-radius: 8px;
-  --box-shadow: 0 0 10px rgba(3, 124, 19, 0.651);
+  --box-shadow: 0 0 10px rgba(124, 11, 3, 0.651);
   font-weight: bold;
 }
 
 ion-button[size="small"] {
-  --background: #1a0af5; /* azul oscuro */
+  --background: #f5120a; /* azul oscuro */
   --color: #fff;
   font-weight: bold;
   --border-radius: 6px;
@@ -55,11 +60,11 @@ ion-button[size="small"] {
   --background: transparent;
   --padding-start: 8px;
   --inner-padding-end: 8px;
-  --highlight-color-focused: #3399ff; /* azul al enfocar */
+  --highlight-color-focused: #daff33; /* azul al enfocar */
   --border-radius: 8px;
   --border-width: 1px;
   --border-style: solid;
-  --border-color: #d633ff;
+  --border-color: #e4ff33;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(1, 131, 22, 0.2); /* sombra azul */
 }
@@ -68,4 +73,21 @@ ion-button[size="small"] {
   --color: #fff;
   --placeholder-color: #ccc;
   font-size: 16px;
+}
+
+.ion-text-center {
+  text-align: center;
+  font-size: 32px;
+}
+.boton-ingreso-rapido {
+  width: 80px;
+  height: 50px;
+  border-radius: 100%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Centrado horizontal */
+  color: white;
+  font-weight: bold;
 }
